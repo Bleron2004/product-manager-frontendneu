@@ -1,0 +1,55 @@
+<div class="auth-container">
+  <h2>{{ isLoginMode ? 'Login' : 'Registrierung' }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>E-Mail</mat-label>
+      <input matInput [(ngModel)]="email" name="email" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Passwort</mat-label>
+      <input matInput type="password" [(ngModel)]="password" name="password" required />
+    </mat-form-field>
+    <div *ngIf="!isLoginMode">
+      <mat-form-field appearance="fill">
+        <mat-label>Vorname</mat-label>
+        <input matInput [(ngModel)]="firstName" name="firstName" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Nachname</mat-label>
+        <input matInput [(ngModel)]="lastName" name="lastName" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Straße</mat-label>
+        <input matInput [(ngModel)]="street" name="street" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Postleitzahl</mat-label>
+        <input matInput [(ngModel)]="zip" name="zip" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Stadt</mat-label>
+        <input matInput [(ngModel)]="city" name="city" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Land</mat-label>
+        <input matInput [(ngModel)]="country" name="country" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input matInput [(ngModel)]="phone" name="phone" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Mobiltelefon</mat-label>
+        <input matInput [(ngModel)]="mobilePhone" name="mobilePhone" required />
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" type="submit">
+      {{ isLoginMode ? 'Login' : 'Registrieren' }}
+    </button>
+  </form>
+  <button mat-flat-button color="accent" (click)="toggleMode()">
+    {{ isLoginMode ? 'Zu Registrierung wechseln' : 'Zu Login wechseln' }}
+  </button>
+  <p *ngIf="message">{{ message }}</p>
+</div>
+//test
